@@ -1,0 +1,91 @@
+*{
+    box-sizing: content-box;
+    padding: 0;
+    margin: 0;
+}
+
+body{
+    background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.5),rgba(0, 0, 0, 0.5),rgba(0, 0, 0, 0.5),rgba(0, 0, 0, 0.5)), url(https://www.golem.de/2103/155414-266397-266394.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 100vh;
+}
+
+.container-personaje{
+    display: flex;
+    width: 100%;
+    height: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.container-personaje h1{
+    font-size: 1.9em;
+    color: greenyellow;
+    font-weight: 900;
+}
+
+.input-data{
+    height: 100px;
+    width: 60%;
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.input-data button{
+    background-color: transparent;
+    width: 100px;
+    height: 40px;
+    border-radius: 5px;
+    border: 2px solid greenyellow;
+    color: antiquewhite;
+}
+
+.input-data button:hover{
+    cursor: pointer;
+    transform: scale(1.2);
+}
+
+.container-datos-personaje{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.container-datos-personaje p{
+    color: antiquewhite;
+    font-size: 1.4em;
+
+}
+
+.searchData{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.buscador{
+    height: 40px;
+    width: 140px;
+    font-size: 17px;
+    border: 1px solid yellowgreen;
+    background-color: transparent;
+    color: antiquewhite;
+}
+
+.botonBuscar{
+    width: 5em;
+}
+
+.mensaje{
+    color: greenyellow;
+    font-size: 2em;
+    display: none;
+}
