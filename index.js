@@ -6,19 +6,26 @@ const buscador = document.getElementById('buscador');
 const mensaje = document.getElementById('mensaje');
 var contador = 0;
 var dataPersonajes = [];
+var url = "https://rickandmortyapi.com/api/character";
+var contadorPaginas = 1;
 
 
 
 //Funcion principal para cargar los datos
 const setPersonajesData = () => {
-  fetch("https://rickandmortyapi.com/api/character")
+  
+  url = "https://rickandmortyapi.com/api/character/?page=" + contadorPaginas;
+
+  fetch(url,{method:'GET'})
+
     .then((res) => res.json())
-    .then((data) => setPjData(data.results));
+    .then((data) => setPjData(data.results, data));
 
 
-  const setPjData = (data) => {
-    dataPersonajes = data;
-    cargarDatos(data);
+  const setPjData = (resultado, data) => {
+    console.log(data);
+    dataPersonajes = resultado;
+    cargarDatos(resultado);
     asignarEvento();
   };
 };
@@ -30,7 +37,8 @@ function cargarDatos (data) {
     image: data[contador].image,
     name: data[contador].name,
     status: data[contador].status,
-    species: data[contador].species
+    species: data[contador].species,
+    location: data[contador].location.name
   };
 
   Object.keys(personajesData).forEach(key => {
@@ -46,11 +54,13 @@ function cargarDatos (data) {
 //Boton Siguiente
 const setSiguiente = () => {
   mensaje.style.display = 'none';
+  
   if (contador >= 0) {
     contador++;
   }
   if (contador > 19) {
     contador = 0;
+    contadorPaginas ++;
    
   }
 
@@ -64,6 +74,7 @@ const setAnterior = () => {
   
   if (contador < 0) {
     contador = 19;
+    contadorPaginas--;
   }
 
   setPersonajesData();

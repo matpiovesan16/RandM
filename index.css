@@ -55,11 +55,21 @@ body{
     display: flex;
     flex-direction: column;
     gap: 20px;
+    width: 60%;
+    text-align: left;
 }
 
 .container-datos-personaje p{
     color: antiquewhite;
     font-size: 1.4em;
+
+}
+
+.container-datos-personaje img {
+    width: 280px;
+    height: 100%;
+    border-radius: 30%;
+   align-self: center;
 
 }
 
