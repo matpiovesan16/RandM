@@ -58,6 +58,11 @@ const setSiguiente = () => {
   if (contador >= 0) {
     contador++;
   }
+  if(contadorPaginas==42){
+    contadorPaginas=1;
+    contador=0;
+  }
+
   if (contador > 19) {
     contador = 0;
     contadorPaginas ++;
@@ -73,8 +78,16 @@ const setAnterior = () => {
   mensaje.style.display = 'none';
   
   if (contador < 0) {
-    contador = 19;
-    contadorPaginas--;
+    if (contadorPaginas == 1){
+      contadorPaginas = 42;
+      contador = 5;
+    }else{
+      contador = 19;
+      contadorPaginas--;
+      console.log(contadorPaginas);
+    }
+
+    
   }
 
   setPersonajesData();
